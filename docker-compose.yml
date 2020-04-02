@@ -6,7 +6,7 @@ services:
     volumes:
       - ./UserServices:/usr/src/app # mount point
     ports:
-      - 5001:80  # host:container
+      - 5001:5001 # host:container
   common-ml-service:
     build: ./CommonMLServices
     ports:
