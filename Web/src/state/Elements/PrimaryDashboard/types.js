@@ -1,0 +1,5 @@
+const GET_NEARBY_SHOWS_LIST_SAGA = 'app/PrimaryDashboard/GET_NEARBY_SHOWS_LIST_SAGA';
+
+export{
+    GET_NEARBY_SHOWS_LIST_SAGA
+};
