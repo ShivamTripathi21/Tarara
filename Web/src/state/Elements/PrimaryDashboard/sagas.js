@@ -18,6 +18,7 @@ function* getNearbyShows(payload){
         Data.array.forEach(e => {
             e.City = e.City == null ? undefined : new String(e.City)
         });
+        Data = [];
         newPayload = Data;
 
         yield put({
@@ -28,12 +29,13 @@ function* getNearbyShows(payload){
     catch(e){
         yield put({
             type: GET_NEARBY_SHOWS_LIST_SAGA,
-            payload: newPayload
+            payload: null
         });
     }
 }
+
 function* watchGetNearbyShows(){
-    yeild takeEvery(GET_NEARBY_SHOWS_LIST_SAGA, getNearbyShows)
+    yield takeEvery(GET_NEARBY_SHOWS_LIST_SAGA, getNearbyShows);
 }
 
 export const Exports = {
@@ -41,7 +43,7 @@ export const Exports = {
 }
 
 export function* combinedSaga(){
-    yeild all([
+    yield all([
         watchGetNearbyShows()
     ]);
 }
