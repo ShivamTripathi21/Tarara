@@ -1,11 +1,12 @@
 import {createStore, applyMiddleware} from 'redux';
-import {composeWithDevTools} from 'redux-devtools-extension'
-import logger from 'redux-logger'
-import {reducers, sagas} from './ducks'
+import {composeWithDevTools} from 'redux-devtools-extension';
+import logger from 'redux-logger';
+import {reducers, sagas} from './Elements';
+import createSagaMiddleware from 'redux-saga';
 
 export default function configureStore(initialState){
     const sagaMW = createSagaMiddleware();
-    const MW = [sagaMiddleware];
+    const MW = [sagaMW];
 
     if(process.env.NODE_ENV !== 'production'){
         MW.push(logger)
@@ -17,7 +18,7 @@ export default function configureStore(initialState){
         initialState,
         composeDevTool(
             applyMiddleware(
-                ...middlewares,
+                ...MW,
             ),
         ),
     );
@@ -30,7 +31,7 @@ export default function configureStore(initialState){
             store.replaceReducer(reducers);
             sagaTask.cancel();
             sagaTask.done.then(() => {
-                sagaTask = sagaMiddleware.run(sagas);
+                sagaTask = sagaMW.run(sagas);
             });
         });
     }

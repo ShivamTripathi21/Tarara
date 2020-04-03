@@ -1,0 +1,32 @@
+.footer-class{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  border-width: 0px;
+  -webkit-box-shadow: 0px 0px;
+  box-shadow: 0px 0px;
+  opacity: 1.8;
+  background: black;
+  float: none;
+}
+
+.foot-nav-ul{
+  min-width: 696px;
+	list-style: none;
+	padding-top: 20px;
+}
+
+.foot-li{
+  display: inline;
+  padding-left: 50px;
+  padding-right: 50px;
+  float: none;
+}
+
+.footer-link{
+  color: gray;
+  text-decoration: none; 
+  font-family: Proxima Nova,helvetica neue,helvetica,arial,sans-serif;
+}
